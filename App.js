@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './Home';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 export default function App() {
 
@@ -37,19 +37,20 @@ export default function App() {
     },
   });
 
-  const Stack = createNativeStackNavigator();
+  const Tab = createMaterialBottomTabNavigator();
 
   return (
     <NavigationContainer>
-    <Stack.Navigator>
-        <Stack.Screen 
+    <Tab.Navigator>
+        <Tab.Screen 
                   name="Home" 
                   component={Home}
                   options={{
+                    headerShown: true,
                     headerTitleAlign: 'center'
                   }}
                   />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
